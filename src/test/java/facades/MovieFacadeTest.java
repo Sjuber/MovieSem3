@@ -82,7 +82,7 @@ public class MovieFacadeTest {
         List<MovieDTO> ML = MF.getAllMovies();
         assertTrue(ML != null);
     }
-
+// Dicke and balles
     @Test
     public void testGetMovieById(){
         Integer MDvo = 3;
