@@ -82,14 +82,14 @@ public class MovieFacadeTest {
         List<MovieDTO> ML = MF.getAllMovies();
         assertTrue(ML != null);
     }
-// Dicke and balles
+// Here is the bomb
     @Test
     public void testGetMovieById(){
-        Integer MDvo = 1;
+        String MDvo = m3.getTitle();
      MovieFacade MF = MovieFacade.getMovieFacade(emf);
      MovieDTO Movido = MF.getMovieById(m3.getId());
-     Integer MovD = Movido.getId();
-        assertEquals(MDvo,MovD);
+     String MovD = Movido.getTitle();
+        assertEquals(MDvo, Movido.getTitle());
     }
     
     @Test

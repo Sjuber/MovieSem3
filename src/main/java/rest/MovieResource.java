@@ -59,6 +59,7 @@ public class MovieResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getById(@PathParam("id") int id) {
+        
         throw new UnsupportedOperationException();
     }
 
