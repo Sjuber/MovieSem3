@@ -123,8 +123,9 @@ public class MovieResourceTest {
     }
 
     @Test
-    public void testGetAll() {
-        //TODO
+    public void testGetAll() throws Exception {
+//        given()
+//        .get("/movie/all").then().assertThat().body("title", hasItems, os)
     }
 
     
