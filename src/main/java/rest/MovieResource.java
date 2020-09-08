@@ -54,7 +54,7 @@ public class MovieResource {
         EntityManager em = EMF.createEntityManager();
         MovieFacade query = MovieFacade.getMovieFacade(EMF);
         List<MovieDTO> movD = query.getAllMovies();
-        return "{\"all\":" + movD + "}";
+        return "{\"all\":" + new Gson().toJson(movD) + "}";
 //        return new Gson().toJson(movD);
 
     }
