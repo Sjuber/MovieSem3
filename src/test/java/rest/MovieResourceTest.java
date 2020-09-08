@@ -133,16 +133,16 @@ public class MovieResourceTest {
 //        given().pathParam("title", "Harry Potter").get("movie/title/(title)")
     }
     
-    @Test
-    public void testFindByTitleNotFound() {
-       //TODO, if you have time
-    }
     
      @Test
     public void testFindById() {
         //given().get("/movie/{id}", m2.getId())
         //TODO
           
+    }
+    @Test
+    public void testFindByTitleNotFound() {
+       //TODO, if you have time
     }
 }
 

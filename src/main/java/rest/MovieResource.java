@@ -3,12 +3,15 @@ package rest;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import dtos.MovieDTO;
+import entities.Movie;
 
 //Make sure NOT to have any references to your Entity Classes here
 //import entities.Movie;
 
 import facades.MovieFacade;
+import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.EntityManager;
 
 import javax.persistence.EntityManagerFactory;
 import javax.ws.rs.Consumes;
@@ -50,7 +53,14 @@ public class MovieResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAll() {
-        throw new UnsupportedOperationException();
+        EntityManager em = EMF.createEntityManager();
+        try {
+            MovieFacade query = MovieFacade.getMovieFacade(EMF);
+            List<MovieDTO> movD = query.getAllMovies();
+            return new Gson().toJson(movD);
+        } finally {
+            em.close();
+        }
     }
 
     @Path("/{id}")
