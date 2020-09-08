@@ -7,7 +7,6 @@ import entities.Movie;
 
 //Make sure NOT to have any references to your Entity Classes here
 //import entities.Movie;
-
 import facades.MovieFacade;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,37 +29,34 @@ import utils.EMF_Creator;
 public class MovieResource {
 
     private static final EntityManagerFactory EMF = EMF_Creator.createEntityManagerFactory();
-               
-    private static final MovieFacade FACADE =  MovieFacade.getMovieFacade(EMF);
+
+    private static final MovieFacade FACADE = MovieFacade.getMovieFacade(EMF);
     private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
-            
+
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String demo() {
         return "{\"msg\":\"Hello World\"}";
     }
-    
+
     @Path("count")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getMovieCount() {
         long count = FACADE.getMovieCount();
-        return "{\"count\":"+count+"}";  //Done manually so no need for a DTO
+        return "{\"count\":" + count + "}";  //Done manually so no need for a DTO
     }
-    
 
     @Path("all")
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAll() {
         EntityManager em = EMF.createEntityManager();
-        try {
-            MovieFacade query = MovieFacade.getMovieFacade(EMF);
-            List<MovieDTO> movD = query.getAllMovies();
-            return new Gson().toJson(movD);
-        } finally {
-            em.close();
-        }
+        MovieFacade query = MovieFacade.getMovieFacade(EMF);
+        List<MovieDTO> movD = query.getAllMovies();
+        return "{\"all\":" + movD + "}";
+//        return new Gson().toJson(movD);
+
     }
 
     @Path("/{id}")
@@ -76,14 +72,13 @@ public class MovieResource {
     public Response getByTitle(@PathParam("title") String title) {
         throw new UnsupportedOperationException();
     }
-    
 
     @POST
     @Consumes({MediaType.APPLICATION_JSON})
     public String create(MovieDTO movie) {
-      throw new UnsupportedOperationException();
+        throw new UnsupportedOperationException();
     }
-    
+
     @PUT
     @Path("/{id}")
     @Consumes({MediaType.APPLICATION_JSON})
