@@ -129,8 +129,8 @@ public class MovieResourceTest {
 
     
     @Test
-    public void testFindByTitle() {
-        //TODO
+    public void testFindByTitle() throws Exception{
+//        given().pathParam("title", "Harry Potter").get("movie/title/(title)")
     }
     
     @Test
