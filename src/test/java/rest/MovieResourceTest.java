@@ -124,8 +124,15 @@ public class MovieResourceTest {
 
     @Test
     public void testGetAll() throws Exception {
-//        given()
-//        .get("/movie/all").then().assertThat().body("title", hasItems, os)
+        given()
+        .get("/movie/all")
+        .then()
+        .assertThat()
+        .body("title", hasItems("Harry Potter and the Philosopher's Stone",
+                "Harry Potter and the Chamber of Secrets",
+                "Once Upon a Time... in Hollywood"))
+                .assertThat()
+                .body("title", hasSize(3));
     }
 
     

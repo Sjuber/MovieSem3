@@ -51,12 +51,8 @@ public class MovieResource {
     @GET
     @Produces({MediaType.APPLICATION_JSON})
     public String getAll() {
-        EntityManager em = EMF.createEntityManager();
-        MovieFacade query = MovieFacade.getMovieFacade(EMF);
-        List<MovieDTO> movD = query.getAllMovies();
-        return "{\"all\":" + new Gson().toJson(movD) + "}";
-//        return new Gson().toJson(movD);
-
+        List<MovieDTO> movD = FACADE.getAllMovies();
+        return GSON.toJson(movD);
     }
 
     @Path("/{id}")
@@ -84,5 +80,9 @@ public class MovieResource {
     @Consumes({MediaType.APPLICATION_JSON})
     public void update(MovieDTO entity, @PathParam("id") int id) {
         throw new UnsupportedOperationException();
+    }
+
+    private Object GSON() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

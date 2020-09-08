@@ -85,9 +85,9 @@ public class MovieFacadeTest {
 // Dicke and balles
     @Test
     public void testGetMovieById(){
-        Integer MDvo = 3;
+        Integer MDvo = 1;
      MovieFacade MF = MovieFacade.getMovieFacade(emf);
-     MovieDTO Movido = MF.getMovieById(3);
+     MovieDTO Movido = MF.getMovieById(m3.getId());
      Integer MovD = Movido.getId();
         assertEquals(MDvo,MovD);
     }
