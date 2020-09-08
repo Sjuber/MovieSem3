@@ -85,9 +85,9 @@ public class MovieFacadeTest {
 
     @Test
     public void testGetMovieById(){
-        Integer MDvo = 4;
+        Integer MDvo = 3;
      MovieFacade MF = MovieFacade.getMovieFacade(emf);
-     MovieDTO Movido = MF.getMovieById(4);
+     MovieDTO Movido = MF.getMovieById(3);
      Integer MovD = Movido.getId();
         assertEquals(MDvo,MovD);
     }
